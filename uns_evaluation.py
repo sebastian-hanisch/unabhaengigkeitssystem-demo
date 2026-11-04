@@ -208,7 +208,7 @@ def verdict_scaling(rows: list[dict]) -> tuple[str, str]:
         return "warning", "Die Rangquotienten folgen nicht dem erwarteten Muster."
     return "info", (
         f"Beim Stern ist q = 1/k bei allen {len(star)} Größen (k = {star[0]['size']} bis {star[-1]['size']}), beim Rucksack mit einem großen Gegenstand ebenfalls (k = {knap[0]['size']} bis {knap[-1]['size']}): "
-        f"der Quotient kann beliebig klein werden. Die Paarung auf einem Pfad hat ab 3 Kanten stets q = 1/2 (bei 2 Kanten q = {de(path[0]['q'], 0)})."
+        f"der Quotient kann beliebig klein werden. Die Paarung auf einem Pfad hat bei 3 bis 11 Kanten q = 1/2 (nach dem bekannten Satz für Paarungen allgemein; bei 2 Kanten q = {de(path[0]['q'], 0)})."
     )
 
 

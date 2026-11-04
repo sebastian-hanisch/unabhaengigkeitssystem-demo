@@ -83,7 +83,7 @@ def test_maximal_verdict_branches():
 def test_scaling_verdict_names_the_ranges_and_flags_a_broken_pattern():
     rows = ev.scaling_rows()
     kind, text = ev.verdict_scaling(rows)
-    assert kind == "info" and "q = 1/k bei allen 9 Größen (k = 3 bis 11)" in text and "(k = 2 bis 10)" in text and "ab 3 Kanten stets q = 1/2 (bei 2 Kanten q = 1)" in text
+    assert kind == "info" and "q = 1/k bei allen 9 Größen (k = 3 bis 11)" in text and "(k = 2 bis 10)" in text and "bei 3 bis 11 Kanten q = 1/2 (nach dem bekannten Satz für Paarungen allgemein; bei 2 Kanten q = 1)" in text
     broken = [dict(r, q=0.9) if r["family"] == "Stern (unabhängige Menge)" else r for r in rows]
     assert ev.verdict_scaling(broken)[0] == "warning"
 

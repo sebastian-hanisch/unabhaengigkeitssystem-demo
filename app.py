@@ -75,7 +75,7 @@ with st.container(key="kopf"):
     st.title("🧱 Unabhängigkeitssysteme: wo Greedy scheitert und wie schlimm")
 st.markdown(
     """
-Ein **Unabhängigkeitssystem** ist eine Familie zulässiger Mengen, die mit jeder Menge auch alle ihre Teilmengen enthält: Wälder, Paarungen, Auswahlen innerhalb eines Budgets, Standorte ohne Nachbarn. **Greedy** nimmt die Elemente nach Gewicht absteigend und jedes, das zulässig bleibt. Es endet immer in einer **maximalen** Menge, aber nur bei Matroiden in einer **größten und besten**. Wie schlimm es bei den anderen höchstens wird, misst eine Zahl, der **Rangquotient** q: Greedy erreicht mindestens q mal das Optimum, und das ist scharf.
+Ein **Unabhängigkeitssystem** ist eine Familie zulässiger Mengen, die mit jeder Menge auch alle ihre Teilmengen enthält: Wälder, Paarungen, Auswahlen innerhalb eines Budgets, Standorte ohne Nachbarn. **Greedy** nimmt die Elemente nach Gewicht absteigend und jedes, das zulässig bleibt. Es endet immer in einer **maximalen** Menge; dass es für alle Gewichte in einer **größten und besten** endet, gilt genau bei Matroiden. Wie schlimm es bei den anderen höchstens wird, misst eine Zahl, der **Rangquotient** q: Greedy erreicht mindestens q mal das Optimum, und das ist scharf.
 
 Dies ist das **zweite Stück** der Reihe „Matroide und Submodularität“; Stück 1 hat gezeigt, dass Greedy mit einer Gradschranke kippt, dieses Stück fragt, wie schlimm das allgemein werden kann. Weiter unten: vier Experimente (🔬), eine **Spielwiese** mit eigenen Gewichten, **🚧 Wo die Annahmen enden** und der Expander **📐 Mathematische Formulierung**.
 """
@@ -239,8 +239,8 @@ st.markdown(
     """
 | Annahme | Was passiert, wenn sie verletzt ist | Wer setzt an |
 |---|---|---|
-| **Die Grundmenge ist klein (höchstens 16 Elemente)** | Der Rangquotient ist hier durch Aufzählen aller Teilmengen bestimmt, optimale Mengen durch Aufzählen aller zulässigen Mengen. Bei größeren Systemen ist beides ein eigenes Problem (der Quotient ist dann nur noch abschätzbar). | Stück 14 (Verfahrenswahl) |
-| **Greedy ist die Regel der Wahl** | Die Garantie q gilt für Greedy. Bessere Verfahren für dasselbe System (Matching, exakte Verfahren) ändern das Bild; Greedy ist hier der Maßstab, nicht das Ziel. | Stück 7 und 8 (Zwei-Matroid-Schnitt) |
+| **Die Grundmenge ist klein (höchstens 16 Elemente)** | Der Rangquotient ist hier durch Aufzählen aller Teilmengen bestimmt, optimale Mengen durch Aufzählen aller zulässigen Mengen. Bei größeren Systemen ist beides ein eigenes Problem (der Quotient ist dann nur noch abschätzbar). | Stück 17 (Verfahrenswahl) |
+| **Greedy ist die Regel der Wahl** | Die Garantie q gilt für Greedy. Bessere Verfahren für dasselbe System (Matching, exakte Verfahren) ändern das Bild; Greedy ist hier der Maßstab, nicht das Ziel. | Stück 7 und 8 (Schnitt zweier Matroide) |
 | **Gewichte sind nicht negativ und addieren sich** | Mit nichtlinearen Zielen (abnehmender Zusatznutzen) gilt die Garantie nicht, dort gilt eine andere (Submodularität). | Stück 11 |
 | **Der Rangquotient ist ein Worst-Case-Wert** | Im Schnitt liegt Greedy meist viel näher am Optimum (Experiment 2), die Garantie sagt nur, dass es nie darunter fällt. | – |
 | **Ein Plan, eine Gewichtsart je Lauf** | Die Systeme stehen auf einem zufälligen Leitungsnetz, die Gewichte sind zufällig oder konstruiert; echte Gewichte können anders liegen. | – |

@@ -3,7 +3,7 @@
 <!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
 **[→ Demo live ausprobieren](https://sebastianhanisch-unabhaengigkeitssystem-demo.streamlit.app/)** -->
 
-Zweites Stück der Reihe **Matroide und Submodularität** (Bereich Kombinatorik) in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“. Ein **Unabhängigkeitssystem** ist eine Familie zulässiger Mengen, die mit jeder Menge auch alle Teilmengen enthält: Wälder, Paarungen, Auswahlen innerhalb eines Budgets, Standorte ohne Nachbarn. **Greedy** nimmt die Elemente nach Gewicht absteigend und jedes, das zulässig bleibt; es endet in einer **maximalen** Menge, aber nur bei Matroiden in einer größten und besten. Wie schlimm es sonst höchstens wird, misst der **Rangquotient** q: Greedy erreicht mindestens q mal das Optimum, und die Schranke ist scharf.
+Zweites Stück der Reihe **Matroide und Submodularität** (Bereich Kombinatorik) in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“. Ein **Unabhängigkeitssystem** ist eine Familie zulässiger Mengen, die mit jeder Menge auch alle Teilmengen enthält: Wälder, Paarungen, Auswahlen innerhalb eines Budgets, Standorte ohne Nachbarn. **Greedy** nimmt die Elemente nach Gewicht absteigend und jedes, das zulässig bleibt; es endet in einer **maximalen** Menge; dass es für alle Gewichte in einer größten und besten endet, gilt genau bei Matroiden. Wie schlimm es sonst höchstens wird, misst der **Rangquotient** q: Greedy erreicht mindestens q mal das Optimum, und die Schranke ist scharf.
 
 **Einordnung in die Reihe:** Nachfolger von [greedy-austausch-demo](../greedy-austausch-demo) (Stück 1: warum Kruskal gewinnt und dass Greedy mit einer Gradschranke kippt). Dieses Stück hebt die Frage auf alle Systeme. Vorgriff: Stück 3 (das Matroid als Struktur, bei der q = 1 gilt) und Stück 5 (Greedy genau dann optimal für alle Gewichte, wenn Matroid). Nachbarn: [greedy-matching-demo](../greedy-matching-demo) (Greedy-Paarung als Einzelfall mit Beweisskizze der Hälfte), [constrained-mst-demo](../constrained-mst-demo) und [cmst-demo](../cmst-demo) (gradbeschränkte und kapazitierte Spannbäume mit Lösungsverfahren).
 
@@ -16,7 +16,7 @@ Stück 1 hat gezeigt, dass dieselbe Greedy-Regel auf dem Spannbaum optimal ist u
 - **Hook präzisiert:** Der Plan (`PLAN-02-unabhaengigkeitssysteme.md` im Planungsordner der Linie) sprach vom „Quotienten kleinster zu größter maximaler Menge“. Der Rangquotient ist das Minimum über **alle Teilmengen** F, nicht nur über die ganze Grundmenge: Beim Wald mit höchstens 3 Leitungen je Standort haben alle 152 maximalen Mengen sechs Leitungen, und q ist trotzdem 0,6.
 - **Vier Experimente plus Hauptansicht:** Die fünf geplanten Prüfungen (Greedy gegen Optimum mit den Gewichtsarten, Rangquotient, Schnitt gegen schlimmsten Fall, maximal gegen größtmöglich, Skalierung) stehen als Hauptansicht „Greedy gegen Optimum“ und vier nummerierte Experimente. Die Gewichte „von Hand“ stehen in der Spielwiese.
 - **Spielwiese als Tabelle:** Die Gewichte werden in einer Tabelle (`st.data_editor`) gesetzt. Die Auswertung ist als reine Funktion getestet; die Tabelle selbst ist mit dem Test-Rahmen der Oberfläche nicht ansprechbar (nicht mit echter Eingabe getestet).
-- **Paarung und Standorte:** Greedy-Paarung hat `greedy-matching-demo` schon mit Beweisskizze der Hälfte; hier ist die Paarung eines von sieben Systemen mit Rangquotient 1/2.
+- **Paarung und Standorte:** Greedy-Paarung hat `greedy-matching-demo` schon mit Beweisskizze der Hälfte; hier ist die Paarung eines von sieben Systemen; ihr Rangquotient ist 1/2.
 
 ## Modell
 
@@ -63,7 +63,7 @@ Alle Zahlen stehen in `tests/test_claims.py` und werden dort mit den Funktionen 
 | **Preset „Standorte ohne Nachbarn“** (Zufallsgewichte, Seed 8) | Greedy 1,084 von 1,914: **56,6 %** (Garantie 33,3 %). |
 | **Preset „Budget-Auswahl“** (Zufallsgewichte, Seed 1) | Greedy 3,416 von 3,655: **93,5 %** (Garantie 66,7 %). |
 | **Maximal, aber nicht größtmöglich** (Plan, Zahl der maximalen Mengen je Größe) | Wald: 180 mit 6. Wald mit Schranke 3: 152 mit 6. Wald mit Schranke 2: **34 mit 5 und 24 mit 6**. Paarung: 2 mit 2 und 16 mit 3. Budget: 15 mit 4, 128 mit 5, 53 mit 6. Standorte: 4 mit 2 und 2 mit 3. Uniform: 495 mit 4. |
-| **Wie klein kann q werden?** (Skalierung) | Stern mit k Blättern: q = **1/k** für k = 3 bis 11. Rucksack mit einem Gegenstand der Größe k und k der Größe 1: q = 1/k für k = 2 bis 10. Paarung auf einem Pfad: q = 1 bei 2 Kanten, **1/2** bei 3 bis 11 Kanten. |
+| **Wie klein kann q werden?** (Skalierung) | Stern mit k Blättern: q = **1/k** für k = 3 bis 11. Rucksack mit einem Gegenstand der Größe k und k der Größe 1: q = 1/k für k = 2 bis 10. Paarung auf einem Pfad: q = 1 bei 2 Kanten, **1/2** bei 3 bis 11 Kanten (nach dem bekannten Satz für Paarungen auch darüber hinaus). |
 
 ## Ehrliche Grenzen
 
@@ -105,7 +105,7 @@ Alle Zahlen stehen in `tests/test_claims.py` und werden dort mit den Funktionen 
 - Der Beweis der Garantie und die Umkehrung „Greedy genau dann optimal, wenn Matroid“ (Stück 5), die Matroid-Axiome (Stück 3).
 - Größere Systeme als 16 Elemente und ein Schätzer für den Rangquotienten.
 - Gewichte, die sich nicht addieren (abnehmender Zusatznutzen): dafür gilt eine andere Garantie (Stück 11).
-- Exakte Verfahren für Paarung und Wald (Stück 7 und 8, Matching-Linie).
+- Exakte Verfahren für Paarung und Wald (Stück 7 und 8, Schnitt zweier Matroide).
 - Erklärseite „verständlich erklärt“ und Website-Einbindung (erst mit der vollständigen Linie).
 
 ## Lokal ausführen
