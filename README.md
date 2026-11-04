@@ -1,7 +1,6 @@
 # Unabhängigkeitssysteme: wo Greedy scheitert und wie schlimm – Streamlit-Demo
 
-<!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-unabhaengigkeitssystem-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-unabhaengigkeitssystem-demo.streamlit.app/)**
 
 Zweites Stück der Reihe **Matroide und Submodularität** (Bereich Kombinatorik) in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“. Ein **Unabhängigkeitssystem** ist eine Familie zulässiger Mengen, die mit jeder Menge auch alle Teilmengen enthält: Wälder, Paarungen, Auswahlen innerhalb eines Budgets, Standorte ohne Nachbarn. **Greedy** nimmt die Elemente nach Gewicht absteigend und jedes, das zulässig bleibt; es endet in einer **maximalen** Menge; dass es für alle Gewichte in einer größten und besten endet, gilt genau bei Matroiden. Wie schlimm es sonst höchstens wird, misst der **Rangquotient** q: Greedy erreicht mindestens q mal das Optimum, und die Schranke ist scharf.
 
